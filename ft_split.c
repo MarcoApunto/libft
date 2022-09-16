@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 20:41:23 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/16 18:11:00 by marferre         ###   ########.fr       */
+/*   Created: 2022/09/16 22:24:06 by marferre          #+#    #+#             */
+/*   Updated: 2022/09/17 00:13:27 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	*ft_calloc(size_t items, size_t size)
+/*
+Reserva (utilizando malloc(3)) un array de strings
+resultante de separar la string ’s’ en substrings
+utilizando el caracter ’c’ como delimitador. El
+array debe terminar con un puntero NULL.
+*/
+char	**ft_split(char const *s, char c)
 {
-	void	*ptr;
+	size_t	i;
+	size_t	j;
+	size_t	len;
+	char	**dst;
 
-	ptr = malloc(items * size);
-	if (!ptr)
+	if (!s || !c)
 		return (0);
-	ft_bzero(ptr, items * size);
-	return (ptr);
+	len = ft_strlen(s);
+	i = 0;
+	while (!(ft_strchr(s, (int)c)))
+	{
+		dst[i][j] = s[j];
+		j++;
+	}
+	return (dst)
 }

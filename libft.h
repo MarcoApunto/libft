@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:16:01 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/15 21:41:31 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/16 22:07:34 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ int		ft_strncmp(const char *str1, const char *str2, size_t n);
 char	*ft_strdup(const char *src);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
-//char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
-
 
 #endif
