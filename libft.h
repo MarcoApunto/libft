@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:16:01 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/16 22:07:34 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/17 17:35:56 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 void	ft_bzero(void *str, size_t n);
 void	*ft_calloc(size_t items, size_t size);
@@ -33,6 +34,7 @@ int		ft_tolower(int tl);
 int		ft_atoi(const char *str);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 char	*ft_strdup(const char *src);
+char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
