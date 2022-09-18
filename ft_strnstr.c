@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 20:09:58 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/12 22:36:56 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/18 16:47:11 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	size_t	i2;
 	size_t	found;
 
+	if (!str && !len)
+		return (0);
 	i = 0;
 	if (!(to_find[i]))
 		return ((char *)str);
@@ -27,10 +29,8 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 		if (str[i] == to_find[found])
 		{
 			i2 = i;
-			while ((str[i] == to_find[found]) && (i < len))
+			while ((str[i] == to_find[found++]) && (i++ < len))
 			{
-				i++;
-				found++;
 				if (!(to_find[found]))
 					return ((char *)str + i2);
 			}

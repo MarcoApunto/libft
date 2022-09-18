@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 22:24:06 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/17 20:39:52 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/18 14:59:19 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,19 @@ static int	ft_many_words(char const *s, char c)
 	return (mw);
 }
 
-void	ft_lets_split(char const **dest, char const *src)
+static char	ft_lets_split(char const **dst, char const *src)
 {
 	size_t i;
 	size_t j;
 
 	i = 0;
 	j = 0;
-	while(dest[i][j])
+	while(dst)
 	{
-		dest[i][j] = src[j];
+		dst[i][j] = src[j];
 		j++;
 	}
+	return (dst);
 }
 
 char	**ft_split(char const *s, char c)
@@ -70,7 +71,7 @@ char	**ft_split(char const *s, char c)
 		if (s[a] != c)
 		{
 			a2 = a;
-			ft_lets_split(dst, s[a2]);
+			dst = ft_lets_split(dst, s[a2]);
 			j++;
 		}
 		else

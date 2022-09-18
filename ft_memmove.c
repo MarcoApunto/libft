@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 18:47:49 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/15 19:45:46 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:18:43 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
+	if (!src && !dst)
+		return (0);
 	i = 0;
 	if (src < dst)
 	{
