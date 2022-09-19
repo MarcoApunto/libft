@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 22:24:06 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/18 14:59:19 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:59:42 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,66 +17,51 @@ resultante de separar la string ’s’ en substrings
 utilizando el caracter ’c’ como delimitador. El
 array debe terminar con un puntero NULL.
 */
-static int	ft_many_words(char const *s, char c)
+static int	ft_many_words(const char *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	mw;
+	int	mw;
+	int	bln;
 
-	i = 0;
-	j = 0;
 	mw = 0;
-	while (s[i])
+	bln = 0;
+	while (*s)
 	{
-		while (s[j] == c && s[j])
-			j++;
-		while (s[j] != c && s[j])
+		if (*s != c && bln == 0)
+		{
+			bln = 1;
 			mw++;
-		i++;
+		}
+		else if (*s == c)
+			bln = 0;
+		s++;
 	}
 	return (mw);
 }
 
-static char	ft_lets_split(char const **dst, char const *src)
+static char	*ft_malloc_things(char **dst, const char *s)
 {
-	size_t i;
-	size_t j;
-
-	i = 0;
-	j = 0;
-	while(dst)
-	{
-		dst[i][j] = src[j];
-		j++;
-	}
-	return (dst);
+	
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	a;
-	size_t	a2;
 	size_t	i;
 	size_t	j;
+	int		bln;
 	char	**dst;
 
-	if (!s)
+	dst = malloc(sizeof(char *) * (ft_many_words(s, c) + 1));
+	if (!s || !dst)
 		return (0);
-	dst = malloc(sizeof(char) * (ft_many_words(s, c) + 1));
-	a = 0;
 	i = 0;
-	while (a <= ft_strlen(s))
+	j = 0;
+	bln = -1;
+	while (i <= ft_strlen(s))
 	{
-		j = 0;
-		if (s[a] != c)
-		{
-			a2 = a;
-			dst = ft_lets_split(dst, s[a2]);
-			j++;
-		}
-		else
+		if (s[i] == c)
 			i++;
-		a++;
+		
 	}
+	dst[j] = NULL;
 	return (dst);
 }
