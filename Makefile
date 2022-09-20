@@ -6,21 +6,27 @@
 #    By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 22:39:21 by marferre          #+#    #+#              #
-#    Updated: 2022/09/18 15:04:15 by marferre         ###   ########.fr        #
+#    Updated: 2022/09/20 22:55:48 by marferre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= ft_isalpha.c ft_isdigit.c  ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c \
 		ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strnstr.c ft_atoi.c \
-		ft_strdup.c ft_bzero.c ft_memset.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_calloc.c \
-		ft_substr.c ft_strtrim.c ft_strjoin.c
+		ft_bzero.c ft_memset.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_calloc.c ft_strdup.c \
+		ft_substr.c ft_strjoin.c ft_strtrim.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+		
+SRCSB	= ft_lstnew_bonus.c
+
 OBJS	= ${SRCS:.c=.o}
+OBJSB	= ${SRCSB:.c=.o}
 NAME	= libft.a
 CC		= gcc
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror
 AR		= ar -rcs
 ARF		= ranlib
+B_RL	= .
 
 .c.o:
 			${CC} ${CFLAGS} -c $< -o $@
@@ -32,11 +38,19 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} ${OBJSB}
 
 fclean:		clean
 			${RM} ${NAME}
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+${B_RL}:	${OBJS} ${OBJSB}
+			${AR} ${NAME} ${OBJS} ${OBJSB}
+			${ARF} ${NAME}
+
+bonus:		${B_RL}
+
+rebonus:	fclean bonus
+
+.PHONY:		all clean fclean re bonus rebonus

@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 22:24:06 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/20 00:07:34 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:16:54 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static char	*ft_malloc_things(char *dst, char const *s)
 	char	*dst;
 
 	dst = malloc(sizeof(char *) * ());
-	
 	return (dst);
 }
 

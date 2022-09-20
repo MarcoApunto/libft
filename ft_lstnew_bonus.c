@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 16:09:25 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/20 15:08:29 by marferre         ###   ########.fr       */
+/*   Created: 2022/09/20 22:25:46 by marferre          #+#    #+#             */
+/*   Updated: 2022/09/20 22:50:55 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+int	ft_isascii(int a)
 {
-	while (*str)
-	{
-		if (*str == (unsigned char)c)
-			return ((char *)str);
-		str++;
-	}
-	if (!c)
-		return ((char *)str);
+	if (a >= 0 && a <= 127)
+		return (1);
 	return (0);
 }
