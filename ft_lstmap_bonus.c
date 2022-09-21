@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 20:41:23 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/21 22:38:12 by marferre         ###   ########.fr       */
+/*   Created: 2022/09/21 20:43:14 by marferre          #+#    #+#             */
+/*   Updated: 2022/09/21 22:34:06 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t items, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	void	*ptr;
+	t_list	*new;
+	t_list	*element;
 
-	if (!items || 9223372036854775807 * items < size)
-		return (0);
-	ptr = malloc(items * size);
-	if (!ptr)
-		return (0);
-	ft_bzero(ptr, items * size);
-	return (ptr);
+	if (!lst || !f)
+		return (NULL);
+	new = NULL;
+	while (lst != NULL)
+	{
+		element = ft_lstnew(f(lst->content));
+		if (!element)
+		{
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new, element);
+		lst = lst->next;
+	}
+	return (new);
 }
