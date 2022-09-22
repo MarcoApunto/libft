@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 20:41:23 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/21 22:38:12 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:27:25 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	*ft_calloc(size_t items, size_t size)
 {
 	void	*ptr;
 
-	if (!items || 9223372036854775807 * items < size)
-		return (0);
 	ptr = malloc(items * size);
 	if (!ptr)
 		return (0);
