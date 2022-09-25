@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 22:24:06 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/23 18:01:11 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/25 20:01:49 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,31 @@ static int	ft_many_words(const char *s, char c)
 	return (mw);
 }
 
-static char	**ft_free_malloc(char **dst, int i)
+static void	ft_check_malloc(char **dst, int j, int *sprt)
 {
-	while (--i >= 0)
-		free(dst[i]);
-	free(dst);
-	return (0);
+	if (!dst)
+	{
+		while (--j >= 0)
+			free(dst[j]);
+		free(dst);
+	}
+	(*sprt) = -1;
 }
 
-static char	*ft_malloc_things(char const *s, int i)
+static char	*ft_malloc_things(char const *s, int sprt, int i)
 {
 	char	*dst;
 	int		j;
-	int		k;
 
-	j = 0;
-	dst = malloc(sizeof(char *) * ()));
+	dst = malloc(sizeof(char) * (i - sprt));
 	if (!dst)
 		return (0);
-	while (i > k)
+	j = 0;
+	while (sprt < i)
 	{
-		dst[j] = s[k];
-		k++;
+		dst[j] = s[sprt];
 		j++;
+		sprt++;
 	}
 	dst[j] = '\0';
 	return (dst);
@@ -66,6 +68,7 @@ char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;
+	int		sprt;
 	char	**dst;
 
 	if (!s)
@@ -75,31 +78,17 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	i = 0;
 	j = 0;
+	sprt = -1;
 	while ((size_t)i <= ft_strlen(s))
 	{
-		if (s[i] != c && s[1])
-		{
-			dst[j++] = ft_malloc_things(s, i);
-			if (!dst)
-				return (ft_free_malloc(dst, i));
-		}
+		if ((s[i] == c || (size_t)i == ft_strlen(s)) && sprt >= 0)
+			dst[j++] = ft_malloc_things(s, sprt, i);
+		if ((s[i] == c || (size_t)i == ft_strlen(s)) && sprt >= 0)
+			ft_check_malloc(dst, j, &sprt);
+		if (s[i] != c && sprt < 0)
+			sprt = i;
 		i++;
 	}
+	dst[j] = NULL;
 	return (dst);
-}
-
-void	leaks(void)
-{
-	system("leaks a.out");
-}
-
-int main()
-{
-	char *s = "   ha  cucu   caca  sj  jax   ";
-	char c = ' ';
-	char **splited = ft_split(s, c);
-
-	atexit(leaks);
-	printf("%s, %s, %s, %s, %s", splited[0], splited[1], splited[2], splited[3], splited[4]);
-	free(splited);
 }

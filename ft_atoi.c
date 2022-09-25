@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:34:15 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/23 18:01:59 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:16:51 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ int	ft_atoi(const char *str)
 		y = (str[c] - '0') + (y * 10);
 		c++;
 	}
-	ft_check_long(x, y);
+	y = ft_check_long(x, y);
 	return (x * y);
 }
