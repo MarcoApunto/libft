@@ -6,7 +6,7 @@
 /*   By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:09:25 by marferre          #+#    #+#             */
-/*   Updated: 2022/09/25 19:39:55 by marferre         ###   ########.fr       */
+/*   Updated: 2022/09/25 21:13:19 by marferre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	if (!str)
-		return (0);
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		if (*str == (unsigned char)c)
-			return ((char *)str);
-		str++;
+		if (str[i] == (char)c)
+			return ((char *)str + i);
+		i++;
 	}
-	if (!c)
-		return ((char *)str);
+	if (str[i] == (char)c)
+		return ((char *)str + i);
 	return (0);
 }
