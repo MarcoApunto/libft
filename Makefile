@@ -6,7 +6,7 @@
 #    By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 22:39:21 by marferre          #+#    #+#              #
-#    Updated: 2022/09/29 20:23:35 by marferre         ###   ########.fr        #
+#    Updated: 2022/09/29 20:25:18 by marferre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror
 AR		= ar -rcs
 ARF		= ranlib
-BONUS = .
+BONUS	= .
 
 .c.o:
 			${CC} ${CFLAGS} -c $< -o $@
