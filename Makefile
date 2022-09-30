@@ -6,7 +6,7 @@
 #    By: marferre <marferre@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/12 22:39:21 by marferre          #+#    #+#              #
-#    Updated: 2022/09/29 20:25:18 by marferre         ###   ########.fr        #
+#    Updated: 2022/09/30 19:10:52 by marferre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ fclean:		clean
 re:			fclean all
 
 ${BONUS}:	${OBJS} ${OBJSB}
-			${AR} ${NAME} ${OBJS} ${OBJS}
+			${AR} ${NAME} ${OBJS} ${OBJSB}
+			${ARF} ${NAME}
 
 bonus:		${BONUS}
 
