@@ -1,4 +1,4 @@
-# Libft_WiP
+# Libft
 First project 42_Cursus
 
 On the Makefile, I did a mistake on the bonus. Didn´t call the OBJS_BONUS for include them to the .a (now is updated)
